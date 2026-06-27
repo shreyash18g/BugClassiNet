@@ -1,73 +1,116 @@
 # 🐞 BugClassiNet: Semantic Bug Report Classification
 
-A multi-stage deep learning framework to automatically classify software bug reports with high accuracy using state-of-the-art NLP.
+A multi-stage deep learning framework for automatic software bug report classification using state-of-the-art Natural Language Processing (NLP). BugClassiNet combines semantic embeddings with deep learning architectures to accurately identify, categorize, and prioritize bug reports from large-scale software repositories.
 
 ---
 
 ## 🚀 Features
 
--   🧠 **State-of-the-Art Semantic Understanding** — Utilizes a fine-tuned **Sentence-BERT (SBERT)** model to understand the true meaning of bug reports, not just keywords.
--   🏗️ **Specialized Dual-Model Architecture** — Employs a lightweight **1D CNN** for fast initial triage and a powerful **Transformer** for deep, nuanced analysis.
--   💡 **Innovative Data Augmentation** — Introduces **domain-specific hard-negative sampling** to create a robust model that isn't fooled by technical jargon.
--   🔬 **Multi-Level Classification** — Categorizes reports by **Existence** (Bug/Non-Bug), **Complexity** (Bohrbug/Mandelbug), and **Root Cause** (ARB/NAM).
--   📊 **Proven High Performance** — Achieves an **F1-Score of 0.9644** on highly imbalanced, real-world data where traditional methods fail.
--   🔌 **Modular & Extensible** — Designed to be easily integrated into existing bug tracking workflows and extended for other software engineering tasks.
+* 🧠 **Semantic Bug Understanding** – Fine-tuned **Sentence-BERT (SBERT)** generates domain-specific semantic embeddings that capture the contextual meaning of bug reports beyond keyword matching.
+* 🏗️ **Hierarchical Classification Pipeline** – Multi-stage framework for classifying reports into **Bug/Non-Bug**, **Bohrbug/Mandelbug**, and **ARB/NAM** categories.
+* ⚡ **Hybrid Deep Learning Models** – Combines lightweight **1D CNN** classifiers with Transformer-based semantic representations for high accuracy and efficient inference.
+* 🔬 **Domain-Specific Data Processing** – Advanced preprocessing, metadata integration, and hard-negative sampling improve robustness on real-world software engineering datasets.
+* 📊 **High Performance** – Achieves an **F1-Score of 0.9644** on highly imbalanced bug report datasets.
+* 🔌 **Modular Design** – Easily extendable for new datasets, bug taxonomies, and software engineering research tasks.
 
 ---
 
 ## 📦 Installation
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/patelkanak23/BugClassiNet.git](https://github.com/patelkanak23/BugClassiNet.git)
-    cd BugClassiNet
-    ```
+Clone the repository:
 
-2.  **Install the required packages:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+git clone https://github.com/shreyash18g/BugClassiNet.git
+cd BugClassiNet
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## 🛠️ How to Use
+## 🛠️ Usage
 
-*(This is a template. You should update this with your actual script names and arguments.)*
+### Train the Semantic Embedding Model
 
-1.  **Train the semantic model:**
-    ```bash
-    python train_semantic_model.py --data_path /path/to/your/data --output_dir /models/sem_model_4
-    ```
+```bash
+python train_semantic_model.py \
+    --data_path /path/to/dataset \
+    --output_dir models/semantic_model
+```
 
-2.  **Run the Bug vs. Non-Bug classification:**
-    ```bash
-    python run_classification.py --model_type cnn --data_path /path/to/linux_dataset.csv --semantic_model /models/sem_model_4
-    ```
+### Run Bug vs. Non-Bug Classification
 
-3.  **Run the advanced classification:**
-    ```bash
-    python run_classification.py --model_type transformer --data_path /path/to/curated_linux.xlsx --semantic_model /models/sem_model_4
-    ```
+```bash
+python run_classification.py \
+    --model_type cnn \
+    --data_path /path/to/linux_dataset.csv \
+    --semantic_model models/semantic_model
+```
 
+### Run Hierarchical Classification
+
+```bash
+python run_classification.py \
+    --model_type transformer \
+    --data_path /path/to/linux_dataset.csv \
+    --semantic_model models/semantic_model
+```
+
+---
 
 ## 📂 Repository Structure
 
-```
+```text
 BugClassiNet/
 │
-├── data/                     # Folder for datasets (e.g., Linux, GCC, LLVM)
-├── models/                   # Folder to save trained models and embeddings
-├── notebooks/                # Jupyter notebooks for exploration and analysis
-├── src/                      # Source code for the project
-│   ├── preprocessing.py      # Data cleaning and augmentation scripts
-│   ├── models.py             # Definitions for the CNN and Transformer architectures
-│   ├── train.py              # Script for training the models
-│   └── evaluate.py           # Script for evaluating model performance
+├── LinuxData/              # Linux bug report datasets
+├── ModelTraining/          # Training notebooks and model implementations
+├── preprocessing/          # Data preprocessing scripts
+├── results/                # Experimental results and evaluation
 │
-├── requirements.txt          # List of Python dependencies
-└── README.md                 # This file
+├── app.py                  # Application entry point
+├── README.md               # Project documentation
+└── requirements.txt        # Project dependencies
 ```
 
 ---
 
+## 📈 Performance
 
+| Task                           | Metric                       |
+| ------------------------------ | ---------------------------- |
+| Bug vs. Non-Bug Classification | F1-Score: **96.44%**         |
+| Semantic Representation        | Fine-tuned Sentence-BERT     |
+| Architecture                   | SBERT + 1D CNN + Transformer |
+
+---
+
+## 🧰 Tech Stack
+
+* Python
+* PyTorch
+* Sentence-BERT (SBERT)
+* Transformers
+* Scikit-learn
+* Pandas
+* NumPy
+* Jupyter Notebook
+
+---
+
+## 👨‍💻 Author
+
+**Shreyash Gupta**
+
+* GitHub: https://github.com/shreyash18g
+* LinkedIn: https://linkedin.com/in/shreyash2004
+
+---
+
+## 📄 License
+
+This project is intended for academic and research purposes.
